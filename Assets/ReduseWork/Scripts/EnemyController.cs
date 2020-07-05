@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public GameObject player;
+    public GameObject main;
+	public static int helth = 3;
     private Transform target;
     public float speed;
     
@@ -29,6 +31,12 @@ public class EnemyController : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
     }
+	void FixedUpdate(){
+		if (helth <= 0)
+        {
+            Destroy(main,.5f);
+        }
+	}
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -37,4 +45,9 @@ public class EnemyController : MonoBehaviour
             PlayerController.Bit(1);
         }
     } 
+	public static int Bit(int i)
+    {
+        helth = helth - i;
+        return helth;
+    }
 }

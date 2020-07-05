@@ -23,7 +23,14 @@ public class PlayerController : MonoBehaviour
         
         Vector2 mi = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         mv = mi.normalized * speed;
-
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            rb.transform.rotation = Quaternion.Euler(0, 0, -180);
+        }else if (Input.GetKeyDown(KeyCode.D))
+        {
+            rb.transform.rotation = Quaternion.Euler(180, 0, 0);
+        }
+        
         
 
     }
@@ -50,4 +57,8 @@ public class PlayerController : MonoBehaviour
     {
         Destroy(main,.5f);
     }
+    
+    
+    
+    
 }
