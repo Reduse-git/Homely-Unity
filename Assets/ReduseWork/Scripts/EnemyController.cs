@@ -9,12 +9,13 @@ public class EnemyController : MonoBehaviour
 	public static int helth = 3;
     private Transform target;
     public float speed;
+	
     
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        //rb  = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         if (PlayerController.helth > 0)
         {
@@ -48,6 +49,9 @@ public class EnemyController : MonoBehaviour
 	public static int Bit(int i)
     {
         helth = helth - i;
+		//rb.AddForce(transform.up * 10f, ForceMode2D.Impulse);
         return helth;
+
+		
     }
 }
