@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
         
         Vector2 mi = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         mv = mi.normalized * speed;
-        
+
         
 
     }
