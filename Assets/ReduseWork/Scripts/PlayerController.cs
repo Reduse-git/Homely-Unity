@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-   public int helth;
+   public static int helth = 3;
 
     public float speed;
     public GameObject main;
@@ -37,7 +37,15 @@ public class PlayerController : MonoBehaviour
             destroy();
         }
     }
-
+    public static int Bit(int i)
+    {
+        helth = helth - i;
+        return helth;
+    }
+    public static int CountHelth()
+    {
+        return helth;
+    }
     void destroy()
     {
         Destroy(main,.5f);

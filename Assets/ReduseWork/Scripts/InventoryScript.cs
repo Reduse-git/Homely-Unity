@@ -8,7 +8,8 @@ public class InventoryScript : MonoBehaviour
     public List<GameObject> allResource;
     public Transform player;
 
-    public int res;
+    public static int res;
+    
     
     private GameObject resource;
     // Start is called before the first frame update
@@ -32,6 +33,7 @@ public class InventoryScript : MonoBehaviour
                 inventory.Add(wood);
                 Destroy(resource1, .2f);
                 allResource.Remove(resource1);
+                res += 1;
             }
         }
 
@@ -42,8 +44,19 @@ public class InventoryScript : MonoBehaviour
         //allResource.Add(GameObject.FindGameObjectsWithTag("Resource"));
         
 
-        res = inventory.Count;
+        
 
+    }
+
+    public static int CostBuild(int i)
+    {
+        res = res - i;
+        return res;
+    }
+
+    public int CountRes()
+    {
+        return res;
     }
     void Update()
     { 
